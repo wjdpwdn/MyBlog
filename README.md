@@ -27,3 +27,16 @@
   6. 여러개의 HTML 엘리먼트를 표시할때 map()함수를 이용
 
 ## map을 이용한 반복
+반복적으로 입력하는 엘리먼트를 고차함수 map의 특성을 이용하여 쉽게 입력 가능하다.
+map함수를 사용할 경우 opening tag에 key 값을 설정해주어 element에 안정적인 고유성을 부여한다.
+```javascript
+function Blog() {
+  const blogs = posts.map((post) => (
+    <div key={post.id}> // key 값이 없으면 오류가 난다.
+      <h3>{post.title}</h3>
+      <p>{post.content}</p>
+    </div>
+  ));
+  return <div className="post-wrapper">{blogs}</div>;
+}
+```
